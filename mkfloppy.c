@@ -112,10 +112,11 @@ static int write_filename(char buffer[11], char *fn)
         return 1;
     }  
     int i = 0;
-    for(;i!=fncount;++i) buffer[i]=name[i];
+    for(;i<fncount; ++i) buffer[i]=name[i];
     for(;i<8;       ++i) buffer[i]=' ';
-    for(;i<extcount;++i) buffer[i]=ext[i];
-    for(;i<11;      ++i) buffer[i]=' ';
+    int j = 0;
+    for(;j<extcount;++i) buffer[8+j]=ext[j];
+    for(;j<3;       ++i) buffer[8+j]=' ';
     
     return 0;
 }
